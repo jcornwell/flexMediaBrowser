@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <locale>
-	<item name="Welcome to mp3TunesFlex" value="Welcome to mp3TunesFlex" />	
+	<item name="Welcome to mp3TunesFlex" value="Welcome to mp3TunesFlex" />
+	<item name="Username" value="Username" />
+	<item name="Password" value="Password" />
+	<item name="Login" value="Login" />
 </locale>
