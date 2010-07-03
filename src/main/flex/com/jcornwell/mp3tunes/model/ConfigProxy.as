@@ -11,18 +11,45 @@ package com.jcornwell.mp3tunes.model
 
   public class ConfigProxy extends Proxy implements IProxy, IResponder
   {
-    public static const NAME:String = "ConfigProxy";                  // Proxy name
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
+    public static const NAME:String = "ConfigProxy";
     public static const SEPARATOR:String = "/";
 
-    // Notifications constansts
-    public static const LOAD_SUCCESSFUL:String   = NAME + "loadSuccessful";        // Successful notification
-    public static const LOAD_FAILED:String     = NAME + "loadFailed";          // Failed notification
 
+    //----------------------------------------------------------
+    // Notifications
+    //----------------------------------------------------------
+
+    public static const LOAD_SUCCESSFUL:String   = NAME + "loadSuccessful";
+    public static const LOAD_FAILED:String     = NAME + "loadFailed";
+
+
+    //----------------------------------------------------------
     // Messages
-    public static const ERROR_LOAD_FILE:String  = "Could Not Load the Config File!";  // Error message
+    //----------------------------------------------------------
 
-    private var startupMonitorProxy:StartupMonitorProxy;                // StartupMonitorProxy instance
+    public static const ERROR_LOAD_FILE:String  = "Could Not Load the Config File!";
 
+
+    //----------------------------------------------------------
+    //
+    // Variables - Private
+    //
+    //----------------------------------------------------------
+
+    private var startupMonitorProxy:StartupMonitorProxy;
+
+
+    //----------------------------------------------------------
+    //
+    // Constructor
+    //
+    //----------------------------------------------------------
 
     public function ConfigProxy ( data:Object = null )
     {
@@ -30,14 +57,11 @@ package com.jcornwell.mp3tunes.model
     }
 
 
-    override public function onRegister():void
-    {
-      startupMonitorProxy = facade.retrieveProxy( StartupMonitorProxy.NAME ) as StartupMonitorProxy;
-      startupMonitorProxy.addResource( ConfigProxy.NAME, true );
-
-      setData( new Object() );
-    }
-
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
 
     public function load():void
     {
@@ -84,6 +108,19 @@ package com.jcornwell.mp3tunes.model
       {
         data[key.toLowerCase()] = value;
       }
+    }
+
+
+    //----------------------------------------------------------
+    // Overrides
+    //----------------------------------------------------------
+
+    override public function onRegister():void
+    {
+      startupMonitorProxy = facade.retrieveProxy( StartupMonitorProxy.NAME ) as StartupMonitorProxy;
+      startupMonitorProxy.addResource( ConfigProxy.NAME, true );
+
+      setData( new Object() );
     }
   }
 }

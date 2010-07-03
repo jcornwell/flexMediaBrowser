@@ -8,7 +8,21 @@
 
   <mx:Script>
     <![CDATA[
+
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const CREATION_COMPLETE: String = "myCreationComplete";
+
+
+    //----------------------------------------------------------
+    //
+    // Variables - Public
+    //
+    //----------------------------------------------------------
 
     [Bindable]
     public var welcomeText:String = "";

@@ -7,7 +7,21 @@
 
   <mx:Script>
     <![CDATA[
+
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const CREATION_COMPLETE:String = "myCreationComplete";
+
+
+    //----------------------------------------------------------
+    //
+    // Variables - Public
+    //
+    //----------------------------------------------------------
 
     [Bindable]
     public var usernameText:String = "";
@@ -28,7 +42,10 @@
         <mx:TextInput id="passwordTextInput" styleName="loginTextInput" width="100%" displayAsPassword="true" />
       </mx:FormItem>
     </mx:Form>
-    <mx:Button styleName="loginButton" label="{loginText}"/>
+    <mx:Button styleName="loginButton" label="{loginText}" click=""/>
   </mx:Panel>
+
+  https://shop.mp3tunes.com/api/v1/login?output=xml&username=demo@mp3tunes.com
+&password=demo&partner_token=9999999999
 
 </mx:VBox>

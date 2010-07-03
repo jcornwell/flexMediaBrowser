@@ -2,6 +2,12 @@ package com.jcornwell.mp3tunes.model.helpers
 {
   public class XmlResource
   {
+    //----------------------------------------------------------
+    //
+    // Methods - Public - Static
+    //
+    //----------------------------------------------------------
+
     static public function parse(data:Object, node:Object, prefix:String=''):void
     {
       for(var i:Number=0;i<node.childNodes.length;i++)

@@ -13,23 +13,58 @@ package com.jcornwell.mp3tunes.view
 
   public class LoginScreenMediator extends Mediator implements IMediator
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const NAME:String = "LoginScreenMediator";
+
+
+    //----------------------------------------------------------
+    //
+    // Variables - Private
+    //
+    //----------------------------------------------------------
 
     private var configProxy:ConfigProxy;
     private var localeProxy:LocaleProxy;
 
 
-    ////////////////////////////////////////////////////////////
+    //----------------------------------------------------------
     //
     // Constructor
     //
-    ////////////////////////////////////////////////////////////
+    //----------------------------------------------------------
 
     public function LoginScreenMediator( viewComponent:LoginScreen )
     {
       super( NAME, viewComponent );
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Properties - Protected
+    //
+    //----------------------------------------------------------
+
+    protected function get loginScreen():LoginScreen
+    {
+      return viewComponent as LoginScreen;
+    }
+
+
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Overrides
+    //----------------------------------------------------------
 
     override public function onRegister():void
     {
@@ -40,21 +75,21 @@ package com.jcornwell.mp3tunes.view
     }
 
 
-    protected function get loginScreen():LoginScreen
-    {
-      return viewComponent as LoginScreen;
-    }
+    //----------------------------------------------------------
+    //
+    // Methods - Private
+    //
+    //----------------------------------------------------------
 
-
-    /*********************************/
-    /* events handler          */
-    /*********************************/
+    //----------------------------------------------------------
+    // Event Handlers
+    //----------------------------------------------------------
 
     private function handleCreationComplete( evt:Event ):void
     {
-      loginScreen.usernameText = localeProxy.getText( LocaleKeyEnum.USER_NAME );
-      loginScreen.passwordText = localeProxy.getText( LocaleKeyEnum.PASSWORD );
-      loginScreen.loginText = localeProxy.getText( LocaleKeyEnum.LOGIN );
+      loginScreen.usernameText = localeProxy.getLocalizedText( LocaleKeyEnum.USER_NAME );
+      loginScreen.passwordText = localeProxy.getLocalizedText( LocaleKeyEnum.PASSWORD );
+      loginScreen.loginText = localeProxy.getLocalizedText( LocaleKeyEnum.LOGIN );
     }
   }
 }

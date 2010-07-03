@@ -2,6 +2,12 @@
 {
   public class ConfigKeyEnum
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const LANGUAGE:String = "language"
   }
 }

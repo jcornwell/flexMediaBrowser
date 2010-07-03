@@ -6,8 +6,21 @@ package com.jcornwell.mp3tunes.model.business
 
   public class LoadXMLDelegate
   {
+    //----------------------------------------------------------
+    //
+    // Variables - Private
+    //
+    //----------------------------------------------------------
+
     private var responder : IResponder;
     private var service : HTTPService;
+
+
+    //----------------------------------------------------------
+    //
+    // Constructor
+    //
+    //----------------------------------------------------------
 
     public function LoadXMLDelegate( responder : IResponder, url:String)
     {
@@ -18,6 +31,12 @@ package com.jcornwell.mp3tunes.model.business
       this.responder = responder;
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
 
     public function load() : void
     {

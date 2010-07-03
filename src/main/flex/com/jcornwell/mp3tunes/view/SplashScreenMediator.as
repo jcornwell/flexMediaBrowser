@@ -15,11 +15,20 @@ package com.jcornwell.mp3tunes.view
 
   public class SplashScreenMediator extends Mediator implements IMediator
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+    
     public static const NAME:String = "SplashScreenMediator";
 
-    /**
-     * Constructor.
-     */
+    //----------------------------------------------------------
+    //
+    // Constructor
+    //
+    //----------------------------------------------------------
+
     public function SplashScreenMediator( viewComponent:SplashScreen )
     {
       super( NAME, viewComponent );
@@ -27,6 +36,16 @@ package com.jcornwell.mp3tunes.view
       splashScreen.addEventListener(SplashScreen.EFFECT_END, endEffectHandler);
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Overrides
+    //----------------------------------------------------------
 
     override public function listNotificationInterests():Array
     {
@@ -60,11 +79,27 @@ package com.jcornwell.mp3tunes.view
     }
 
 
+    //----------------------------------------------------------
+    //
+    // Methods - Protected
+    //
+    //----------------------------------------------------------
+
     protected function get splashScreen():SplashScreen
     {
       return viewComponent as SplashScreen;
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Methods - Private
+    //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Event Handlers
+    //----------------------------------------------------------
 
     private function endEffectHandler(event:Event=null):void
     {

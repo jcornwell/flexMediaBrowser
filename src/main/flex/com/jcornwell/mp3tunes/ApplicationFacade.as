@@ -7,6 +7,12 @@ package com.jcornwell.mp3tunes
 
   public class ApplicationFacade extends Facade
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const STARTUP:String = "startup";
     public static const SHUTDOWN:String = "shutdown";
 
@@ -17,6 +23,12 @@ package com.jcornwell.mp3tunes
     public static const VIEW_MAIN_SCREEN:String = "viewMainScreen";
 
 
+    //----------------------------------------------------------
+    //
+    // Methods - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static function getInstance() : ApplicationFacade
     {
       if ( instance == null ) instance = new ApplicationFacade( );
@@ -24,16 +36,32 @@ package com.jcornwell.mp3tunes
     }
 
 
-    override protected function initializeController( ) : void
-    {
-      super.initializeController();
-      registerCommand( STARTUP, ApplicationStartupCommand );
-    }
-
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
 
     public function startup( app:Main ):void
     {
       sendNotification( STARTUP, app );
+    }
+
+
+    //----------------------------------------------------------
+    //
+    // Methods - Protected
+    //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Overrides
+    //----------------------------------------------------------
+
+    override protected function initializeController( ) : void
+    {
+      super.initializeController();
+      registerCommand( STARTUP, ApplicationStartupCommand );
     }
   }
 }

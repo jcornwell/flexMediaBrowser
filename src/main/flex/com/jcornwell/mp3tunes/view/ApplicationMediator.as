@@ -6,36 +6,51 @@ package com.jcornwell.mp3tunes.view
   import org.puremvc.as3.interfaces.INotification;
   import org.puremvc.as3.patterns.mediator.Mediator;
 
-  /**
-   * A Mediator for interacting with the top level Application.
-   *
-   * <P>
-   * In addition to the ordinary responsibilities of a mediator
-   * the MXML application (in this case) built all the view components
-   * and so has a direct reference to them internally. Therefore
-   * we create and register the mediators for each view component
-   * with an associated mediator here.</P>
-   *
-   * <P>
-   * Then, ongoing responsibilities are:
-   * <UL>
-   * <LI>listening for events from the viewComponent (the application)</LI>
-   * <LI>sending notifications on behalf of or as a result of these
-   * events or other notifications.</LI>
-   * <LI>direct manipulating of the viewComponent by method invocation
-   * or property setting</LI>
-   * </UL>
-   */
+
   public class ApplicationMediator extends Mediator implements IMediator
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const NAME:String = "ApplicationMediator";
 
+
+    //----------------------------------------------------------
+    //
+    // Constructor
+    //
+    //----------------------------------------------------------
 
     public function ApplicationMediator( viewComponent:Main )
     {
       super( NAME, viewComponent );
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Properties - Protected
+    //
+    //----------------------------------------------------------
+
+    protected function get app():Main
+    {
+      return viewComponent as Main
+    }
+
+
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Overrides
+    //----------------------------------------------------------
 
     override public function onRegister():void
     {
@@ -71,12 +86,6 @@ package com.jcornwell.mp3tunes.view
           app.vwStack.selectedChild = app.mainScreen;
           break;
        }
-    }
-
-
-    protected function get app():Main
-    {
-      return viewComponent as Main
     }
   }
 }

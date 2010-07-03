@@ -8,16 +8,39 @@ package com.jcornwell.mp3tunes.model
 
   public class StartupMonitorProxy extends Proxy implements IProxy
   {
+    //----------------------------------------------------------
+    //
+    // Constants - Public - Static
+    //
+    //----------------------------------------------------------
+
     public static const NAME:String = "StartupMonitorProxy";
 
-    // Notifications constansts
-    public static const LOADING_STEP:String        = NAME + "loadingStep";
-    public static const LOADING_COMPLETE:String      = NAME + "loadingComplete";
+
+    //----------------------------------------------------------
+    // Notifications
+    //----------------------------------------------------------
+
+    public static const LOADING_STEP:String = NAME + "loadingStep";
+    public static const LOADING_COMPLETE:String = NAME + "loadingComplete";
+
+
+    //----------------------------------------------------------
+    //
+    // Variables - Private
+    //
+    //----------------------------------------------------------
 
     private var resourceList:Array;
     private var totalReources:int = 0;
     private var loadedReources:int = 0;
 
+
+    //----------------------------------------------------------
+    //
+    // Constructor
+    //
+    //----------------------------------------------------------
 
     public function StartupMonitorProxy ( data:Object = null )
     {
@@ -25,6 +48,12 @@ package com.jcornwell.mp3tunes.model
       resourceList = new Array();
     }
 
+
+    //----------------------------------------------------------
+    //
+    // Methods - Public
+    //
+    //----------------------------------------------------------
 
     public function addResource( proxyName:String, blockChain:Boolean = false ):void
     {
@@ -51,11 +80,7 @@ package com.jcornwell.mp3tunes.model
       }
     }
 
-    /**
-     * The resource is loaded, update the state anche check if the loading process is completed
-     *
-     * @param name proxy name
-     */
+
     public function resourceComplete( proxyName:String ):void
     {
       for( var i:int = 0; i < resourceList.length; i++)
@@ -80,11 +105,13 @@ package com.jcornwell.mp3tunes.model
 
     }
 
-    /**
-     * Check if the loading process is completed
-     *
-     * @return boolean process is completed
-     */
+
+    //----------------------------------------------------------
+    //
+    // Methods - Private
+    //
+    //----------------------------------------------------------
+
     private function checkResources():Boolean
     {
       for( var i:int = 0; i < resourceList.length; i++)

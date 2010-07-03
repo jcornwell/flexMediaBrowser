@@ -15,6 +15,12 @@
 
       import mx.effects.easing.Exponential;
 
+      //----------------------------------------------------------
+      //
+      // Variables - Private
+      //
+      //----------------------------------------------------------
+
       private var facade:ApplicationFacade = ApplicationFacade.getInstance();
       ]]>
   </mx:Script>
