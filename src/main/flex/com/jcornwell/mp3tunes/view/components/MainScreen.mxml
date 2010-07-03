@@ -8,19 +8,11 @@
 		public static const CREATION_COMPLETE: String = "myCreationComplete";
 		
 		[Bindable]
-		public var myText1:String = "";
-		[Bindable]
-		public var myText2:String = "";
-		[Bindable]
-		public var myText3:String = "";
-		[Bindable]
-		public var myText4:String = "";
+		public var welcomeText:String = "";
+
 		]]>
 	</mx:Script>
 	<mx:VBox height="100%" width="100%" horizontalAlign="center" verticalAlign="middle">
-		<mx:Label text="{myText1}" color="#ffffff" fontSize="14" width="90%" />
-		<mx:Text htmlText="{myText2}" width="90%" color="#ffffff" />
-		<mx:Label text="{myText3}" color="#ffffff" fontSize="14" width="90%" />
-		<mx:Text htmlText="{myText4}" width="90%" color="#ffffff" />
+		<mx:Label text="{welcomeText}" color="#ffffff" fontSize="14" width="90%" />
 	</mx:VBox>
 </mx:Canvas>

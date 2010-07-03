@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<param name="language" value="en" />
-	<param name="keyName" value="value 1" />
-	<param name="otherKeyName"><![CDATA[Long text value]]></param>
-	<group name="groupName">
-		<param name="keyNameInsideGroup" value="value 2" />
-		<group name="subGroupName">
-			<param name="keyNameInsideSubGroup" value="value 3" />
-		</group>
-	</group>
 </config>
