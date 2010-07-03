@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+  xmlns:mx="http://www.adobe.com/2006/mxml"
+  width="100%" height="100%"
+  horizontalAlign="center" verticalAlign="middle"
+  creationComplete="dispatchEvent( new Event( CREATION_COMPLETE ) )">
+
+  <mx:Script>
+    <![CDATA[
+    public static const CREATION_COMPLETE:String = "myCreationComplete";
+
+    [Bindable]
+    public var usernameText:String = "";
+    [Bindable]
+    public var passwordText:String = "";
+    [Bindable]
+    public var loginText:String = "";
+
+    ]]>
+  </mx:Script>
+
+  <mx:Panel styleName="loginPanel" title="{loginText}" horizontalAlign="right" width="300">
+    <mx:Form width="100%">
+      <mx:FormItem styleName="loginFormItem" label="{usernameText}" width="100%" direction="horizontal">
+        <mx:TextInput id="usernameTextInput" styleName="loginTextInput" width="100%" />
+      </mx:FormItem>
+      <mx:FormItem styleName="loginFormItem" label="{passwordText}" width="100%" direction="horizontal">
+        <mx:TextInput id="passwordTextInput" styleName="loginTextInput" width="100%" displayAsPassword="true" />
+      </mx:FormItem>
+    </mx:Form>
+    <mx:Button styleName="loginButton" label="{loginText}"/>
+  </mx:Panel>
+
+</mx:VBox>

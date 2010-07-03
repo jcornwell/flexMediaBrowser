@@ -1,130 +1,82 @@
 package com.jcornwell.mp3tunes.view
 {
-	import com.jcornwell.mp3tunes.ApplicationFacade;
-	
-	import org.puremvc.as3.interfaces.IMediator;
-	import org.puremvc.as3.interfaces.INotification;
-	import org.puremvc.as3.patterns.mediator.Mediator;
-	    
-    /**
-     * A Mediator for interacting with the top level Application.
-     * 
-     * <P>
-     * In addition to the ordinary responsibilities of a mediator
-     * the MXML application (in this case) built all the view components
-     * and so has a direct reference to them internally. Therefore
-     * we create and register the mediators for each view component
-     * with an associated mediator here.</P>
-     * 
-     * <P>
-     * Then, ongoing responsibilities are: 
-     * <UL>
-     * <LI>listening for events from the viewComponent (the application)</LI>
-     * <LI>sending notifications on behalf of or as a result of these 
-     * events or other notifications.</LI>
-     * <LI>direct manipulating of the viewComponent by method invocation
-     * or property setting</LI>
-     * </UL>
-     */
-    public class ApplicationMediator extends Mediator implements IMediator
+  import com.jcornwell.mp3tunes.ApplicationFacade;
+
+  import org.puremvc.as3.interfaces.IMediator;
+  import org.puremvc.as3.interfaces.INotification;
+  import org.puremvc.as3.patterns.mediator.Mediator;
+
+  /**
+   * A Mediator for interacting with the top level Application.
+   *
+   * <P>
+   * In addition to the ordinary responsibilities of a mediator
+   * the MXML application (in this case) built all the view components
+   * and so has a direct reference to them internally. Therefore
+   * we create and register the mediators for each view component
+   * with an associated mediator here.</P>
+   *
+   * <P>
+   * Then, ongoing responsibilities are:
+   * <UL>
+   * <LI>listening for events from the viewComponent (the application)</LI>
+   * <LI>sending notifications on behalf of or as a result of these
+   * events or other notifications.</LI>
+   * <LI>direct manipulating of the viewComponent by method invocation
+   * or property setting</LI>
+   * </UL>
+   */
+  public class ApplicationMediator extends Mediator implements IMediator
+  {
+    public static const NAME:String = "ApplicationMediator";
+
+
+    public function ApplicationMediator( viewComponent:Main )
     {
-        // Cannonical name of the Mediator
-        public static const NAME:String = "ApplicationMediator";
-        
-		// available values for the main viewstack
-		// defined as contants to help uncover errors at compile time instead of run time
-		public static const SPLASH_SCREEN : Number 	=	1;
-		public static const MAIN_SCREEN : Number 	=	2;
-        
-        /**
-         * Constructor. 
-         * 
-         * <P>
-         * On <code>applicationComplete</code> in the <code>Application</code>,
-         * the <code>ApplicationFacade</code> is initialized and the 
-         * <code>ApplicationMediator</code> is created and registered.</P>
-         * 
-         * <P>
-         * The <code>ApplicationMediator</code> constructor also registers the 
-         * Mediators for the view components created by the application.</P>
-         * 
-         * @param object the viewComponent (the ApplicationSkeleton instance in this case)
-         */
-        public function ApplicationMediator( viewComponent:Main ) 
-        {
-            // pass the viewComponent to the superclass where 
-            // it will be stored in the inherited viewComponent property
-            super( NAME, viewComponent );
-		}
-
-        override public function onRegister():void
-        {
-            // Create and register Mediators
-            // components that were instantiated by the mxml application 
-			facade.registerMediator( new SplashScreenMediator( app.splashScreen ) );
-			facade.registerMediator( new MainScreenMediator( app.mainScreen ) );
-        }
-
-        /**
-         * List all notifications this Mediator is interested in.
-         * <P>
-         * Automatically called by the framework when the mediator
-         * is registered with the view.</P>
-         * 
-         * @return Array the list of Nofitication names
-         */
-        override public function listNotificationInterests():Array 
-        {
-            return [
-						ApplicationFacade.VIEW_SPLASH_SCREEN,
-						ApplicationFacade.VIEW_MAIN_SCREEN
-					];
-        }
-
-        /**
-         * Handle all notifications this Mediator is interested in.
-         * <P>
-         * Called by the framework when a notification is sent that
-         * this mediator expressed an interest in when registered
-         * (see <code>listNotificationInterests</code>.</P>
-         * 
-         * @param INotification a notification 
-         */
-        override public function handleNotification( note:INotification ):void 
-        {
-            switch ( note.getName() ) 
-			{
-				case ApplicationFacade.VIEW_SPLASH_SCREEN:
-					app.vwStack.selectedIndex = SPLASH_SCREEN;
-					break;
-
-				case ApplicationFacade.VIEW_MAIN_SCREEN:
-					app.vwStack.selectedIndex = MAIN_SCREEN;
-					break;
-            }
-        }
-
-        /**
-         * Cast the viewComponent to its actual type.
-         * 
-         * <P>
-         * This is a useful idiom for mediators. The
-         * PureMVC Mediator class defines a viewComponent
-         * property of type Object. </P>
-         * 
-         * <P>
-         * Here, we cast the generic viewComponent to 
-         * its actual type in a protected mode. This 
-         * retains encapsulation, while allowing the instance
-         * (and subclassed instance) access to a 
-         * strongly typed reference with a meaningful
-         * name.</P>
-         * 
-         * @return app the viewComponent cast to AppSkeleton
-         */
-        protected function get app():Main
-		{
-            return viewComponent as Main
-        }
+      super( NAME, viewComponent );
     }
+
+
+    override public function onRegister():void
+    {
+      facade.registerMediator( new SplashScreenMediator( app.splashScreen ) );
+      facade.registerMediator( new MainScreenMediator( app.mainScreen ) );
+      facade.registerMediator( new LoginScreenMediator( app.loginScreen ) );
+    }
+
+
+    override public function listNotificationInterests():Array
+    {
+      return [
+      ApplicationFacade.VIEW_SPLASH_SCREEN,
+      ApplicationFacade.VIEW_LOGIN_SCREEN,
+      ApplicationFacade.VIEW_MAIN_SCREEN
+      ];
+    }
+
+
+    override public function handleNotification( note:INotification ):void
+    {
+      switch ( note.getName() )
+      {
+        case ApplicationFacade.VIEW_SPLASH_SCREEN:
+          app.vwStack.selectedChild = app.splashScreen;
+          break;
+
+        case ApplicationFacade.VIEW_LOGIN_SCREEN:
+          app.vwStack.selectedChild = app.loginScreen;
+          break;
+
+        case ApplicationFacade.VIEW_MAIN_SCREEN:
+          app.vwStack.selectedChild = app.mainScreen;
+          break;
+       }
+    }
+
+
+    protected function get app():Main
+    {
+      return viewComponent as Main
+    }
+  }
 }

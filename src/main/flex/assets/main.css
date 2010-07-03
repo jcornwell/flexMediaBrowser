@@ -1,21 +1,30 @@
 .global
 {
-    highlightAlphas:        .5, .25;
-    borderColor:            #939A9D;
-    headerColors:           #456F84, #9ABBC9;
-    themeColor:             #75B1CE;
-    rollOverColor:          #D6E6EE;
-    selectionColor:         #B8D5E4;
+    highlight-alphas:        .5, .25;
+    border-color:            #939A9D;
+    header-colors:           #456F84, #9ABBC9;
+    theme-color:             #252627;
+    roll-over-color:         #D6E6EE;
+    selection-color:         #B8D5E4;
 }
 
 Application
 {
-	backgroundGradientColors: #3E4B8B, #252D52;
+  background-gradient-colors: #383838, #474747;
 }
 
 .error
 {
-    fontWeight:         "bold";
-    fontSize:           11;
-	color:				#990000;
+  font-weight:         "bold";
+  font-size:           11;
+  color:        #990000;
+}
+
+
+.loginPanel
+{
+  padding-top: 10;
+  padding-bottom: 10;
+  padding-left: 10;
+  padding-right: 10;
 }

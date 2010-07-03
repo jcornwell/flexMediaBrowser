@@ -2,9 +2,8 @@ package com.jcornwell.mp3tunes.view
 {
   import com.jcornwell.mp3tunes.model.ConfigProxy;
   import com.jcornwell.mp3tunes.model.LocaleProxy;
-  import com.jcornwell.mp3tunes.model.enum.ConfigKeyEnum;
   import com.jcornwell.mp3tunes.model.enum.LocaleKeyEnum;
-  import com.jcornwell.mp3tunes.view.components.MainScreen;
+  import com.jcornwell.mp3tunes.view.components.LoginScreen;
 
   import flash.events.Event;
 
@@ -12,9 +11,9 @@ package com.jcornwell.mp3tunes.view
   import org.puremvc.as3.patterns.mediator.Mediator;
 
 
-  public class MainScreenMediator extends Mediator implements IMediator
+  public class LoginScreenMediator extends Mediator implements IMediator
   {
-    public static const NAME:String = "MainScreenMediator";
+    public static const NAME:String = "LoginScreenMediator";
 
     private var configProxy:ConfigProxy;
     private var localeProxy:LocaleProxy;
@@ -26,7 +25,7 @@ package com.jcornwell.mp3tunes.view
     //
     ////////////////////////////////////////////////////////////
 
-    public function MainScreenMediator( viewComponent:MainScreen )
+    public function LoginScreenMediator( viewComponent:LoginScreen )
     {
       super( NAME, viewComponent );
     }
@@ -37,13 +36,13 @@ package com.jcornwell.mp3tunes.view
       configProxy = facade.retrieveProxy( ConfigProxy.NAME ) as ConfigProxy;
       localeProxy = facade.retrieveProxy( LocaleProxy.NAME ) as LocaleProxy;
 
-      mainScreen.addEventListener( MainScreen.CREATION_COMPLETE, handleCreationComplete );
+      loginScreen.addEventListener( LoginScreen.CREATION_COMPLETE, handleCreationComplete );
     }
 
 
-    protected function get mainScreen():MainScreen
+    protected function get loginScreen():LoginScreen
     {
-      return viewComponent as MainScreen;
+      return viewComponent as LoginScreen;
     }
 
 
@@ -53,7 +52,9 @@ package com.jcornwell.mp3tunes.view
 
     private function handleCreationComplete( evt:Event ):void
     {
-      mainScreen.welcomeText = localeProxy.getText( LocaleKeyEnum.WELCOME );
+      loginScreen.usernameText = localeProxy.getText( LocaleKeyEnum.USER_NAME );
+      loginScreen.passwordText = localeProxy.getText( LocaleKeyEnum.PASSWORD );
+      loginScreen.loginText = localeProxy.getText( LocaleKeyEnum.LOGIN );
     }
   }
 }
