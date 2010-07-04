@@ -39,9 +39,9 @@ package com.jcornwell.mediabrowser.view
     //
     //----------------------------------------------------------
 
-    public function MainScreenMediator( viewComponent:MainScreen )
+    public function MainScreenMediator(viewComponent:MainScreen)
     {
-      super( NAME, viewComponent );
+      super(NAME, viewComponent);
     }
 
 
@@ -57,10 +57,10 @@ package com.jcornwell.mediabrowser.view
 
     override public function onRegister():void
     {
-      configProxy = facade.retrieveProxy( ConfigProxy.NAME ) as ConfigProxy;
-      localeProxy = facade.retrieveProxy( LocaleProxy.NAME ) as LocaleProxy;
+      configProxy = facade.retrieveProxy(ConfigProxy.NAME) as ConfigProxy;
+      localeProxy = facade.retrieveProxy(LocaleProxy.NAME) as LocaleProxy;
 
-      mainScreen.addEventListener( MainScreen.CREATION_COMPLETE, creationCompleteHandler );
+      mainScreen.addEventListener(MainScreen.CREATION_COMPLETE, creationCompleteHandler);
     }
 
 
@@ -86,9 +86,9 @@ package com.jcornwell.mediabrowser.view
     // Event Handlers
     //----------------------------------------------------------
 
-    private function creationCompleteHandler( evt:Event ):void
+    private function creationCompleteHandler(evt:Event):void
     {
-      mainScreen.welcomeText = localeProxy.getLocalizedText( LocaleKeyEnum.WELCOME );
+      mainScreen.welcomeText = localeProxy.getLocalizedText(LocaleKeyEnum.WELCOME);
     }
   }
 }

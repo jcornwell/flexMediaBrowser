@@ -52,7 +52,7 @@ var hasProductInstall = DetectFlashVer(6, 0, 65);
 // Version check based upon the values defined in globals
 var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
 
-if ( hasProductInstall && !hasRequestedVersion ) {
+if (hasProductInstall && !hasRequestedVersion) {
 	// DO NOT MODIFY THE FOLLOWING FOUR LINES
 	// Location visited after installation is complete if installation is required
 	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";

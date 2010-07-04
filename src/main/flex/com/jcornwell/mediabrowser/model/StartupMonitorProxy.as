@@ -42,9 +42,9 @@ package com.jcornwell.mediabrowser.model
     //
     //----------------------------------------------------------
 
-    public function StartupMonitorProxy ( data:Object = null )
+    public function StartupMonitorProxy(data:Object = null)
     {
-      super ( NAME, data );
+      super(NAME, data);
       resourceList = new Array();
     }
 
@@ -55,24 +55,24 @@ package com.jcornwell.mediabrowser.model
     //
     //----------------------------------------------------------
 
-    public function addResource( proxyName:String, blockChain:Boolean = false ):void
+    public function addResource(proxyName:String, blockChain:Boolean = false):void
     {
-      resourceList.push( new ResourceVO( proxyName, blockChain ) );
+      resourceList.push(new ResourceVO(proxyName, blockChain));
     }
 
 
     public function loadResources():void
     {
-      for( var i:int = 0; i < resourceList.length; i++)
+      for(var i:int = 0; i < resourceList.length; i++)
       {
         var r:ResourceVO = resourceList[i] as ResourceVO;
-        if ( !r.loaded )
+        if (!r.loaded)
         {
-          var proxy:* = facade.retrieveProxy( r.proxyName ) as Proxy;
+          var proxy:* = facade.retrieveProxy(r.proxyName) as Proxy;
           proxy.load();
 
           // check if the loading process must be stopped until the resource is loaded
-          if ( r.blockChain )
+          if (r.blockChain)
           {
             break;
           }
@@ -81,21 +81,21 @@ package com.jcornwell.mediabrowser.model
     }
 
 
-    public function resourceComplete( proxyName:String ):void
+    public function resourceComplete(proxyName:String):void
     {
-      for( var i:int = 0; i < resourceList.length; i++)
+      for(var i:int = 0; i < resourceList.length; i++)
       {
         var r:ResourceVO = resourceList[i] as ResourceVO;
-        if ( r.proxyName == proxyName )
+        if (r.proxyName == proxyName)
         {
           r.loaded = true;
           loadedReources++;
           // send the notification for update the progress bar
-          sendNotification( StartupMonitorProxy.LOADING_STEP, (loadedReources * 100) / resourceList.length );
+          sendNotification(StartupMonitorProxy.LOADING_STEP, (loadedReources * 100) / resourceList.length);
           // check if the process is completed
           // if is not completed and the resources have blocked the process chain
           // continue to read the other resources
-          if ( !checkResources() && r.blockChain )
+          if (!checkResources() && r.blockChain)
           {
             loadResources();
           }
@@ -114,15 +114,15 @@ package com.jcornwell.mediabrowser.model
 
     private function checkResources():Boolean
     {
-      for( var i:int = 0; i < resourceList.length; i++)
+      for(var i:int = 0; i < resourceList.length; i++)
       {
         var r:ResourceVO = resourceList[i] as ResourceVO;
-        if ( !r.loaded )
+        if (!r.loaded)
         {
           return false;
         }
       }
-      sendNotification( StartupMonitorProxy.LOADING_COMPLETE );
+      sendNotification(StartupMonitorProxy.LOADING_COMPLETE);
       return true;
     }
   }

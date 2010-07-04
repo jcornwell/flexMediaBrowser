@@ -29,9 +29,9 @@ package com.jcornwell.mediabrowser.view
     //
     //----------------------------------------------------------
 
-    public function SplashScreenMediator( viewComponent:SplashScreen )
+    public function SplashScreenMediator(viewComponent:SplashScreen)
     {
-      super( NAME, viewComponent );
+      super(NAME, viewComponent);
 
       splashScreen.addEventListener(SplashScreen.EFFECT_END, endEffectHandler);
     }
@@ -58,16 +58,16 @@ package com.jcornwell.mediabrowser.view
     }
 
 
-    override public function handleNotification( note:INotification ):void
+    override public function handleNotification(note:INotification):void
     {
-      switch ( note.getName() )
+      switch (note.getName())
       {
         case StartupMonitorProxy.LOADING_STEP:
-          this.splashScreen.pb.setProgress( note.getBody() as int, 100);
+          this.splashScreen.pb.setProgress(note.getBody() as int, 100);
           break;
 
         case StartupMonitorProxy.LOADING_COMPLETE:
-          this.sendNotification( ApplicationFacade.VIEW_LOGIN_SCREEN );
+          this.sendNotification(ApplicationFacade.VIEW_LOGIN_SCREEN);
           break;
 
         case ConfigProxy.LOAD_FAILED:
@@ -103,7 +103,7 @@ package com.jcornwell.mediabrowser.view
 
     private function endEffectHandler(event:Event=null):void
     {
-      var startupMonitorProxy:StartupMonitorProxy = facade.retrieveProxy( StartupMonitorProxy.NAME ) as StartupMonitorProxy;
+      var startupMonitorProxy:StartupMonitorProxy = facade.retrieveProxy(StartupMonitorProxy.NAME) as StartupMonitorProxy;
       startupMonitorProxy.loadResources();
     }
   }

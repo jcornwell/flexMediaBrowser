@@ -9,10 +9,10 @@ package com.jcornwell.mediabrowser.controller
 
   public class ViewPrepCommand extends SimpleCommand
   {
-    override public function execute( note:INotification ) :void
+    override public function execute(note:INotification):void
     {
-      facade.registerMediator( new ApplicationMediator( note.getBody() as Main ) );
-      sendNotification( ApplicationFacade.VIEW_SPLASH_SCREEN );
+      facade.registerMediator(new ApplicationMediator(note.getBody() as Main));
+      sendNotification(ApplicationFacade.VIEW_SPLASH_SCREEN);
     }
   }
 }

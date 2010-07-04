@@ -4,7 +4,7 @@
   xmlns="*"
   width="100%" height="100%"
   horizontalAlign="center" verticalAlign="middle"
-  creationComplete="dispatchEvent( new Event( CREATION_COMPLETE ) )">
+  creationComplete="dispatchEvent(new Event(CREATION_COMPLETE))">
 
   <mx:Script>
     <![CDATA[

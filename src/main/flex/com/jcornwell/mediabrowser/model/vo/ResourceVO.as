@@ -6,7 +6,7 @@ package com.jcornwell.mediabrowser.model.vo
     public var loaded:Boolean;
     public var blockChain:Boolean;
 
-    function ResourceVO( proxyName:String, blockChain:Boolean )
+    function ResourceVO(proxyName:String, blockChain:Boolean)
     {
       this.proxyName = proxyName;
       this.loaded = false;

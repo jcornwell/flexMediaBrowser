@@ -24,9 +24,9 @@ package com.jcornwell.mediabrowser.view
     //
     //----------------------------------------------------------
 
-    public function ApplicationMediator( viewComponent:Main )
+    public function ApplicationMediator(viewComponent:Main)
     {
-      super( NAME, viewComponent );
+      super(NAME, viewComponent);
     }
 
 
@@ -54,9 +54,9 @@ package com.jcornwell.mediabrowser.view
 
     override public function onRegister():void
     {
-      facade.registerMediator( new SplashScreenMediator( app.splashScreen ) );
-      facade.registerMediator( new MainScreenMediator( app.mainScreen ) );
-      facade.registerMediator( new LoginScreenMediator( app.loginScreen ) );
+      facade.registerMediator(new SplashScreenMediator(app.splashScreen));
+      facade.registerMediator(new MainScreenMediator(app.mainScreen));
+      facade.registerMediator(new LoginScreenMediator(app.loginScreen));
     }
 
 
@@ -70,9 +70,9 @@ package com.jcornwell.mediabrowser.view
     }
 
 
-    override public function handleNotification( note:INotification ):void
+    override public function handleNotification(note:INotification):void
     {
-      switch ( note.getName() )
+      switch (note.getName())
       {
         case ApplicationFacade.VIEW_SPLASH_SCREEN:
           app.vwStack.selectedChild = app.splashScreen;

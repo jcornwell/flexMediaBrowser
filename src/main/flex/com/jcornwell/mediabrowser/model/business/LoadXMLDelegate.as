@@ -22,7 +22,7 @@ package com.jcornwell.mediabrowser.model.business
     //
     //----------------------------------------------------------
 
-    public function LoadXMLDelegate( responder : IResponder, url:String)
+    public function LoadXMLDelegate(responder : IResponder, url:String)
     {
       service = new HTTPService();
       service.resultFormat = 'xml';
@@ -38,10 +38,10 @@ package com.jcornwell.mediabrowser.model.business
     //
     //----------------------------------------------------------
 
-    public function load() : void
+    public function load(): void
     {
       var token:AsyncToken = service.send();
-      token.addResponder( responder );
+      token.addResponder(responder);
     }
   }
 }

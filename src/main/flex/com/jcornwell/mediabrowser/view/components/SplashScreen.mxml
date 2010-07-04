@@ -32,7 +32,7 @@
 
     public function effectEndHandler(event:EffectEvent):void
     {
-      dispatchEvent( new Event( EFFECT_END ) );
+      dispatchEvent(new Event(EFFECT_END));
     }
     ]]>
   </mx:Script>

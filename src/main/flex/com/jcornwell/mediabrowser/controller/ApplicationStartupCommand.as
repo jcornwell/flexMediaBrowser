@@ -5,11 +5,11 @@ package com.jcornwell.mediabrowser.controller
 
   public class ApplicationStartupCommand extends MacroCommand
   {
-    override protected function initializeMacroCommand() :void
+    override protected function initializeMacroCommand():void
     {
-      addSubCommand( ModelPrepCommand );
-      addSubCommand( ViewPrepCommand );
-      addSubCommand( SetDefaultConfigValuesCommand );
+      addSubCommand(ModelPrepCommand);
+      addSubCommand(ViewPrepCommand);
+      addSubCommand(SetDefaultConfigValuesCommand);
     }
   }
 }

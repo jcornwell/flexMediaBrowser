@@ -51,9 +51,9 @@ package com.jcornwell.mediabrowser.model
     //
     //----------------------------------------------------------
 
-    public function ConfigProxy ( data:Object = null )
+    public function ConfigProxy(data:Object = null)
     {
-      super ( NAME, data );
+      super(NAME, data);
     }
 
 
@@ -70,17 +70,17 @@ package com.jcornwell.mediabrowser.model
     }
 
 
-    public function result( rpcEvent : Object ) : void
+    public function result(rpcEvent : Object): void
     {
       XmlResource.parse(data, rpcEvent.result);
-      startupMonitorProxy.resourceComplete( ConfigProxy.NAME );
-      sendNotification( ConfigProxy.LOAD_SUCCESSFUL );
+      startupMonitorProxy.resourceComplete(ConfigProxy.NAME);
+      sendNotification(ConfigProxy.LOAD_SUCCESSFUL);
     }
 
 
-    public function fault( rpcEvent : Object ) : void
+    public function fault(rpcEvent : Object): void
     {
-      sendNotification( ConfigProxy.LOAD_FAILED, ConfigProxy.ERROR_LOAD_FILE );
+      sendNotification(ConfigProxy.LOAD_FAILED, ConfigProxy.ERROR_LOAD_FILE);
     }
 
 
@@ -92,7 +92,7 @@ package com.jcornwell.mediabrowser.model
 
     public function getNumber(key:String):Number
     {
-      return Number( data[key.toLowerCase()] );
+      return Number(data[key.toLowerCase()]);
     }
 
 
@@ -102,9 +102,9 @@ package com.jcornwell.mediabrowser.model
     }
 
 
-    public function setDefaultValue( key:String, value:Object ):void
+    public function setDefaultValue(key:String, value:Object):void
     {
-      if ( !data[key.toLowerCase()] )
+      if (!data[key.toLowerCase()])
       {
         data[key.toLowerCase()] = value;
       }
@@ -117,10 +117,10 @@ package com.jcornwell.mediabrowser.model
 
     override public function onRegister():void
     {
-      startupMonitorProxy = facade.retrieveProxy( StartupMonitorProxy.NAME ) as StartupMonitorProxy;
-      startupMonitorProxy.addResource( ConfigProxy.NAME, true );
+      startupMonitorProxy = facade.retrieveProxy(StartupMonitorProxy.NAME) as StartupMonitorProxy;
+      startupMonitorProxy.addResource(ConfigProxy.NAME, true);
 
-      setData( new Object() );
+      setData(new Object());
     }
   }
 }

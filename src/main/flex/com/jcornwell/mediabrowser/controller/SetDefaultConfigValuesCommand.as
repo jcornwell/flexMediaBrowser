@@ -8,11 +8,11 @@
 
   public class SetDefaultConfigValuesCommand extends SimpleCommand
   {
-    override public function execute( note:INotification ) :void
+    override public function execute(note:INotification):void
     {
-      var configProxy:ConfigProxy = facade.retrieveProxy( ConfigProxy.NAME ) as ConfigProxy;
-      configProxy.setDefaultValue( "language", "en" );
-      configProxy.setDefaultValue( "testDefaultValue", "This isn't defined in config.xml but in SetDefaultConfigValuesCommand" );
+      var configProxy:ConfigProxy = facade.retrieveProxy(ConfigProxy.NAME) as ConfigProxy;
+      configProxy.setDefaultValue("language", "en");
+      configProxy.setDefaultValue("testDefaultValue", "This isn't defined in config.xml but in SetDefaultConfigValuesCommand");
     }
   }
 }

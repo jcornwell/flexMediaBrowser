@@ -1,7 +1,7 @@
 package com.jcornwell.mediabrowser.view
 {
-  import com.jcornwell.mediabrowser.model.ConfigProxy;
   import com.jcornwell.mediabrowser.model.LocaleProxy;
+  import com.jcornwell.mediabrowser.model.LoginProxy;
   import com.jcornwell.mediabrowser.model.enum.LocaleKeyEnum;
   import com.jcornwell.mediabrowser.view.components.LoginScreen;
 
@@ -28,8 +28,8 @@ package com.jcornwell.mediabrowser.view
     //
     //----------------------------------------------------------
 
-    private var configProxy:ConfigProxy;
     private var localeProxy:LocaleProxy;
+    private var loginProxy:LoginProxy;
 
 
     //----------------------------------------------------------
@@ -38,9 +38,9 @@ package com.jcornwell.mediabrowser.view
     //
     //----------------------------------------------------------
 
-    public function LoginScreenMediator( viewComponent:LoginScreen )
+    public function LoginScreenMediator(viewComponent:LoginScreen)
     {
-      super( NAME, viewComponent );
+      super(NAME, viewComponent);
     }
 
 
@@ -68,10 +68,11 @@ package com.jcornwell.mediabrowser.view
 
     override public function onRegister():void
     {
-      configProxy = facade.retrieveProxy( ConfigProxy.NAME ) as ConfigProxy;
-      localeProxy = facade.retrieveProxy( LocaleProxy.NAME ) as LocaleProxy;
+      localeProxy = facade.retrieveProxy(LocaleProxy.NAME) as LocaleProxy;
+      loginProxy = facade.retrieveProxy(LoginProxy.NAME) as LoginProxy;
 
-      loginScreen.addEventListener( LoginScreen.CREATION_COMPLETE, handleCreationComplete );
+      loginScreen.addEventListener(LoginScreen.CREATION_COMPLETE, creationCompleteHandler);
+      loginScreen.addEventListener(LoginScreen.LOGIN_ATTEMPT, loginAttemptHandler);
     }
 
 
@@ -85,11 +86,17 @@ package com.jcornwell.mediabrowser.view
     // Event Handlers
     //----------------------------------------------------------
 
-    private function handleCreationComplete( evt:Event ):void
+    private function creationCompleteHandler(evt:Event):void
     {
-      loginScreen.usernameText = localeProxy.getLocalizedText( LocaleKeyEnum.USER_NAME );
-      loginScreen.passwordText = localeProxy.getLocalizedText( LocaleKeyEnum.PASSWORD );
-      loginScreen.loginText = localeProxy.getLocalizedText( LocaleKeyEnum.LOGIN );
+      loginScreen.usernameText = localeProxy.getLocalizedText(LocaleKeyEnum.USER_NAME);
+      loginScreen.passwordText = localeProxy.getLocalizedText(LocaleKeyEnum.PASSWORD);
+      loginScreen.loginText = localeProxy.getLocalizedText(LocaleKeyEnum.LOGIN);
+    }
+
+
+    private function loginAttemptHandler(evt:Event):void
+    {
+      loginProxy.login(loginScreen.usernameTextInput.text, loginScreen.passwordTextInput.text);
     }
   }
 }

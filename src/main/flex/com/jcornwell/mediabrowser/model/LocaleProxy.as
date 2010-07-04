@@ -49,9 +49,9 @@ package com.jcornwell.mediabrowser.model
     //
     //----------------------------------------------------------
 
-    public function LocaleProxy ( data:Object = null )
+    public function LocaleProxy(data:Object = null)
     {
-      super ( NAME, data );
+      super (NAME, data);
     }
 
 
@@ -63,10 +63,10 @@ package com.jcornwell.mediabrowser.model
 
     public function load():void
     {
-      var configProxy:ConfigProxy = facade.retrieveProxy( ConfigProxy.NAME ) as ConfigProxy;
+      var configProxy:ConfigProxy = facade.retrieveProxy(ConfigProxy.NAME) as ConfigProxy;
       var language:String = configProxy.getValue('language');
 
-      if ( language && language != "" )
+      if (language && language != "")
       {
         var url:String = "assets/" + configProxy.getValue('language') + '.xml';
 
@@ -80,16 +80,16 @@ package com.jcornwell.mediabrowser.model
     }
 
 
-    public function result( rpcEvent : Object ) : void
+    public function result(rpcEvent : Object): void
     {
       XmlResource.parse(data, rpcEvent.result);
       resourceLoaded();
     }
 
 
-    public function fault( rpcEvent : Object ) : void
+    public function fault(rpcEvent : Object): void
     {
-      sendNotification( LocaleProxy.LOAD_FAILED, LocaleProxy.ERROR_LOAD_FILE );
+      sendNotification(LocaleProxy.LOAD_FAILED, LocaleProxy.ERROR_LOAD_FILE);
     }
 
 
@@ -105,10 +105,10 @@ package com.jcornwell.mediabrowser.model
 
     override public function onRegister():void
     {
-      startupMonitorProxy = facade.retrieveProxy( StartupMonitorProxy.NAME ) as StartupMonitorProxy;
-      startupMonitorProxy.addResource( LocaleProxy.NAME, true );
+      startupMonitorProxy = facade.retrieveProxy(StartupMonitorProxy.NAME) as StartupMonitorProxy;
+      startupMonitorProxy.addResource(LocaleProxy.NAME, true);
 
-      setData( new Object() );
+      setData(new Object());
     }
 
 
@@ -120,8 +120,8 @@ package com.jcornwell.mediabrowser.model
 
     private function resourceLoaded():void
     {
-      startupMonitorProxy.resourceComplete( LocaleProxy.NAME );
-      sendNotification( ConfigProxy.LOAD_SUCCESSFUL );
+      startupMonitorProxy.resourceComplete(LocaleProxy.NAME);
+      sendNotification(ConfigProxy.LOAD_SUCCESSFUL);
     }
   }
 }

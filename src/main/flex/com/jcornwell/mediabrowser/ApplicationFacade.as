@@ -29,9 +29,9 @@ package com.jcornwell.mediabrowser
     //
     //----------------------------------------------------------
 
-    public static function getInstance() : ApplicationFacade
+    public static function getInstance(): ApplicationFacade
     {
-      if ( instance == null ) instance = new ApplicationFacade( );
+      if (instance == null) instance = new ApplicationFacade();
       return instance as ApplicationFacade;
     }
 
@@ -42,9 +42,9 @@ package com.jcornwell.mediabrowser
     //
     //----------------------------------------------------------
 
-    public function startup( app:Main ):void
+    public function startup(app:Main):void
     {
-      sendNotification( STARTUP, app );
+      sendNotification(STARTUP, app);
     }
 
 
@@ -58,10 +58,10 @@ package com.jcornwell.mediabrowser
     // Overrides
     //----------------------------------------------------------
 
-    override protected function initializeController( ) : void
+    override protected function initializeController(): void
     {
       super.initializeController();
-      registerCommand( STARTUP, ApplicationStartupCommand );
+      registerCommand(STARTUP, ApplicationStartupCommand);
     }
   }
 }

@@ -9,7 +9,7 @@
         {
 
             var pos = url.indexOf("?");
-            url = pos != -1 ? url.substr(pos + 1) : "";
+            url = pos != -1 ? url.substr(pos + 1): "";
             if (!parent._ie_firstload) {
                 parent.BrowserHistory.setBrowserURL(url);
                 try {

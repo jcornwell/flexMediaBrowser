@@ -3,7 +3,7 @@
   xmlns:mx="http://www.adobe.com/2006/mxml"
   width="100%" height="100%"
   horizontalAlign="center" verticalAlign="middle"
-  creationComplete="dispatchEvent( new Event( CREATION_COMPLETE ) )">
+  creationComplete="dispatchEvent(new Event(CREATION_COMPLETE))">
 
   <mx:Script>
     <![CDATA[
@@ -15,6 +15,7 @@
     //----------------------------------------------------------
 
     public static const CREATION_COMPLETE:String = "myCreationComplete";
+    public static const LOGIN_ATTEMPT:String = "loginAttempt";
 
 
     //----------------------------------------------------------
@@ -42,7 +43,7 @@
         <mx:TextInput id="passwordTextInput" styleName="loginTextInput" width="100%" displayAsPassword="true" />
       </mx:FormItem>
     </mx:Form>
-    <mx:Button styleName="loginButton" label="{loginText}" click=""/>
+    <mx:Button styleName="loginButton" label="{loginText}" click="dispatchEvent(new Event(LOGIN_ATTEMPT))"/>
   </mx:Panel>
 
 </mx:VBox>
