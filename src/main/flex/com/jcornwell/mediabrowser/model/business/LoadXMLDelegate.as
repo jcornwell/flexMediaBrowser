@@ -1,4 +1,4 @@
-package com.jcornwell.mp3tunes.model.business
+package com.jcornwell.mediabrowser.model.business
 {
   import mx.rpc.AsyncToken;
   import mx.rpc.IResponder;

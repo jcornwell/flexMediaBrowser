@@ -1,6 +1,6 @@
-package com.jcornwell.mp3tunes
+package com.jcornwell.mediabrowser
 {
-  import com.jcornwell.mp3tunes.controller.ApplicationStartupCommand;
+  import com.jcornwell.mediabrowser.controller.ApplicationStartupCommand;
 
   import org.puremvc.as3.patterns.facade.Facade;
 

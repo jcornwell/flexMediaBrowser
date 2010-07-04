@@ -1,8 +1,8 @@
-package com.jcornwell.mp3tunes.controller
+package com.jcornwell.mediabrowser.controller
 {
-  import com.jcornwell.mp3tunes.model.ConfigProxy;
-  import com.jcornwell.mp3tunes.model.LocaleProxy;
-  import com.jcornwell.mp3tunes.model.StartupMonitorProxy;
+  import com.jcornwell.mediabrowser.model.ConfigProxy;
+  import com.jcornwell.mediabrowser.model.LocaleProxy;
+  import com.jcornwell.mediabrowser.model.StartupMonitorProxy;
 
   import org.puremvc.as3.interfaces.INotification;
   import org.puremvc.as3.patterns.command.SimpleCommand;

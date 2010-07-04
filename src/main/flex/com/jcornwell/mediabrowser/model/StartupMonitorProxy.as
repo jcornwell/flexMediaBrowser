@@ -1,6 +1,6 @@
-package com.jcornwell.mp3tunes.model
+package com.jcornwell.mediabrowser.model
 {
-  import com.jcornwell.mp3tunes.model.vo.ResourceVO;
+  import com.jcornwell.mediabrowser.model.vo.ResourceVO;
 
   import org.puremvc.as3.interfaces.IProxy;
   import org.puremvc.as3.patterns.proxy.Proxy;

@@ -1,4 +1,4 @@
-package com.jcornwell.mp3tunes.controller
+package com.jcornwell.mediabrowser.controller
 {
   import org.puremvc.as3.patterns.command.MacroCommand;
 

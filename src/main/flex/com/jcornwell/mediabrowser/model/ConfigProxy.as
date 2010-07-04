@@ -1,7 +1,7 @@
-package com.jcornwell.mp3tunes.model
+package com.jcornwell.mediabrowser.model
 {
-  import com.jcornwell.mp3tunes.model.business.LoadXMLDelegate;
-  import com.jcornwell.mp3tunes.model.helpers.XmlResource;
+  import com.jcornwell.mediabrowser.model.business.LoadXMLDelegate;
+  import com.jcornwell.mediabrowser.model.helpers.XmlResource;
 
   import mx.rpc.IResponder;
 

@@ -1,4 +1,4 @@
-package com.jcornwell.mp3tunes.model.vo
+package com.jcornwell.mediabrowser.model.vo
 {
   public class ResourceVO
   {

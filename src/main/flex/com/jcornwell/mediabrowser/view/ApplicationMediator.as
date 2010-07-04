@@ -1,6 +1,6 @@
-package com.jcornwell.mp3tunes.view
+package com.jcornwell.mediabrowser.view
 {
-  import com.jcornwell.mp3tunes.ApplicationFacade;
+  import com.jcornwell.mediabrowser.ApplicationFacade;
 
   import org.puremvc.as3.interfaces.IMediator;
   import org.puremvc.as3.interfaces.INotification;

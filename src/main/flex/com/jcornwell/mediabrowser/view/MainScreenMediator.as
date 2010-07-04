@@ -1,10 +1,10 @@
-package com.jcornwell.mp3tunes.view
+package com.jcornwell.mediabrowser.view
 {
-  import com.jcornwell.mp3tunes.model.ConfigProxy;
-  import com.jcornwell.mp3tunes.model.LocaleProxy;
-  import com.jcornwell.mp3tunes.model.enum.ConfigKeyEnum;
-  import com.jcornwell.mp3tunes.model.enum.LocaleKeyEnum;
-  import com.jcornwell.mp3tunes.view.components.MainScreen;
+  import com.jcornwell.mediabrowser.model.ConfigProxy;
+  import com.jcornwell.mediabrowser.model.LocaleProxy;
+  import com.jcornwell.mediabrowser.model.enum.ConfigKeyEnum;
+  import com.jcornwell.mediabrowser.model.enum.LocaleKeyEnum;
+  import com.jcornwell.mediabrowser.view.components.MainScreen;
 
   import flash.events.Event;
 

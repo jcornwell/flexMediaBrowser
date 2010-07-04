@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-  xmlns:view="com.jcornwell.mp3tunes.view.components.*"
+  xmlns:view="com.jcornwell.mediabrowser.view.components.*"
   layout="absolute"
   width="900" height="600"
   verticalGap="0"
@@ -11,7 +11,7 @@
 
   <mx:Script>
       <![CDATA[
-      import com.jcornwell.mp3tunes.ApplicationFacade;
+      import com.jcornwell.mediabrowser.ApplicationFacade;
 
       import mx.effects.easing.Exponential;
 

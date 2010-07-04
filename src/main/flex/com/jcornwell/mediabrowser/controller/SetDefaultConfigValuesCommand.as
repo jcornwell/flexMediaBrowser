@@ -1,6 +1,6 @@
-﻿package com.jcornwell.mp3tunes.controller
+﻿package com.jcornwell.mediabrowser.controller
 {
-  import com.jcornwell.mp3tunes.model.ConfigProxy;
+  import com.jcornwell.mediabrowser.model.ConfigProxy;
 
   import org.puremvc.as3.interfaces.INotification;
   import org.puremvc.as3.patterns.command.SimpleCommand;

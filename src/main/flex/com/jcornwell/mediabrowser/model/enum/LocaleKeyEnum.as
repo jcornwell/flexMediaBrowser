@@ -1,4 +1,4 @@
-﻿package com.jcornwell.mp3tunes.model.enum
+﻿package com.jcornwell.mediabrowser.model.enum
 {
   public class LocaleKeyEnum
   {

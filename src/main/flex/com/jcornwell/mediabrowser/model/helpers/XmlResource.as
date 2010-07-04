@@ -1,4 +1,4 @@
-package com.jcornwell.mp3tunes.model.helpers
+package com.jcornwell.mediabrowser.model.helpers
 {
   public class XmlResource
   {

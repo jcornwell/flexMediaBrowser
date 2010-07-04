@@ -1,10 +1,10 @@
-package com.jcornwell.mp3tunes.view
+package com.jcornwell.mediabrowser.view
 {
-  import com.jcornwell.mp3tunes.ApplicationFacade;
-  import com.jcornwell.mp3tunes.model.ConfigProxy;
-  import com.jcornwell.mp3tunes.model.LocaleProxy;
-  import com.jcornwell.mp3tunes.model.StartupMonitorProxy;
-  import com.jcornwell.mp3tunes.view.components.SplashScreen;
+  import com.jcornwell.mediabrowser.ApplicationFacade;
+  import com.jcornwell.mediabrowser.model.ConfigProxy;
+  import com.jcornwell.mediabrowser.model.LocaleProxy;
+  import com.jcornwell.mediabrowser.model.StartupMonitorProxy;
+  import com.jcornwell.mediabrowser.view.components.SplashScreen;
 
   import flash.events.Event;
 
