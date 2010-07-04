@@ -10,7 +10,7 @@ package com.jcornwell.mediabrowser.model.helpers
     //
     //----------------------------------------------------------
 
-    public static const PARTNER_TOKEN:String = "9897193079";
+    public static const PARTNER_TOKEN:String = "8309320273";
 
 
     //----------------------------------------------------------
