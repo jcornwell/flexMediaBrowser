@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:VBox
+<mx:HDividedBox
   xmlns:mx="http://www.adobe.com/2006/mxml"
   xmlns="*"
   width="100%" height="100%"
-  horizontalAlign="center" verticalAlign="middle"
   creationComplete="dispatchEvent(new Event(CREATION_COMPLETE))">
 
   <mx:Script>
@@ -30,5 +29,17 @@
     ]]>
   </mx:Script>
 
-  <mx:Label text="{welcomeText}" color="#ffffff" fontSize="14" />
-</mx:VBox>
+  <mx:Accordion width="30%" height="100%">
+    <mx:VBox label="Artist">
+
+    </mx:VBox>
+    <mx:VBox label="Album">
+
+    </mx:VBox>
+  </mx:Accordion>
+
+  <mx:DataGrid width="70%" height="100%">
+
+  </mx:DataGrid>
+
+</mx:HDividedBox>

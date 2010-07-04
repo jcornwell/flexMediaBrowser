@@ -1,5 +1,6 @@
 package com.jcornwell.mediabrowser.view
 {
+  import com.jcornwell.mediabrowser.ApplicationFacade;
   import com.jcornwell.mediabrowser.model.LocaleProxy;
   import com.jcornwell.mediabrowser.model.LoginProxy;
   import com.jcornwell.mediabrowser.model.enum.LocaleKeyEnum;
@@ -8,6 +9,7 @@ package com.jcornwell.mediabrowser.view
   import flash.events.Event;
 
   import org.puremvc.as3.interfaces.IMediator;
+  import org.puremvc.as3.interfaces.INotification;
   import org.puremvc.as3.patterns.mediator.Mediator;
 
 
@@ -65,6 +67,30 @@ package com.jcornwell.mediabrowser.view
     //----------------------------------------------------------
     // Overrides
     //----------------------------------------------------------
+
+    override public function listNotificationInterests():Array
+    {
+      return [
+        LoginProxy.LOGIN_SUCCESSFUL,
+        LoginProxy.LOGIN_FAILED
+        ];
+    }
+
+
+    override public function handleNotification(note:INotification):void
+    {
+      switch (note.getName())
+      {
+        case LoginProxy.LOGIN_SUCCESSFUL:
+          this.sendNotification(ApplicationFacade.VIEW_MAIN_SCREEN);
+          break;
+
+        case LoginProxy.LOGIN_FAILED:
+          // TODO: show error message to user
+          break;
+      }
+    }
+
 
     override public function onRegister():void
     {
