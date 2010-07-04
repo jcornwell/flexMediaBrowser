@@ -45,7 +45,4 @@
     <mx:Button styleName="loginButton" label="{loginText}" click=""/>
   </mx:Panel>
 
-  https://shop.mp3tunes.com/api/v1/login?output=xml&username=demo@mp3tunes.com
-&password=demo&partner_token=9999999999
-
 </mx:VBox>
