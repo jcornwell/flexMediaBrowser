@@ -6,6 +6,10 @@ package com.jcornwell.mediabrowser.model.business
   import com.jcornwell.mediabrowser.model.vo.LoginResultVO;
 
   import flash.events.Event;
+  import flash.events.HTTPStatusEvent;
+  import flash.events.IOErrorEvent;
+  import flash.events.ProgressEvent;
+  import flash.events.SecurityErrorEvent;
   import flash.net.URLLoader;
   import flash.net.URLRequest;
 
@@ -47,7 +51,10 @@ package com.jcornwell.mediabrowser.model.business
     public function execute(): void
     {
       loader.addEventListener(Event.COMPLETE, loader_completeHandler);
-      // TODO: listen for erros from the loader
+      loader.addEventListener(HTTPStatusEvent.HTTP_STATUS, loader_statusHandler);
+      loader.addEventListener(IOErrorEvent.IO_ERROR, loader_errorHandler);
+      loader.addEventListener(ProgressEvent.PROGRESS, loader_progressHandler);
+      loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_securityErrorHandler);
       loader.load(new URLRequest(url));
     }
 
@@ -56,6 +63,10 @@ package com.jcornwell.mediabrowser.model.business
     //
     // Methods - Private
     //
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+    // Event Handlers
     //----------------------------------------------------------
 
     private function loader_completeHandler(evt:Event): void
@@ -70,6 +81,30 @@ package com.jcornwell.mediabrowser.model.business
       {
         this.responder.fault(loginResultVO);
       }
+    }
+
+
+    private function loader_statusHandler(evt:HTTPStatusEvent): void
+    {
+      trace ("LoginDelgate", "loader_statusHandler", evt.status);
+    }
+
+
+    private function loader_errorHandler(evt:IOErrorEvent): void
+    {
+      trace ("LoginDelgate", "loader_errorHandler", evt.text);
+    }
+
+
+    private function loader_progressHandler(evt:ProgressEvent): void
+    {
+      trace ("LoginDelgate", "loader_progressHandler", evt.bytesLoaded, evt.bytesTotal);
+    }
+
+
+    private function loader_securityErrorHandler(evt:SecurityErrorEvent): void
+    {
+      trace ("LoginDelgate", "loader_securityErrorHandler", evt.text);
     }
   }
 }

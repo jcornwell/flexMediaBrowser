@@ -24,17 +24,25 @@
     //----------------------------------------------------------
 
     [Bindable]
-    public var welcomeText:String = "";
+    public var albumText:String = "";
+
+    [Bindable]
+    public var artistText:String = "";
+
+    [Bindable]
+    public var playlistsText:String = "";
 
     ]]>
   </mx:Script>
 
   <mx:Accordion width="30%" height="100%">
-    <mx:VBox label="Artist">
-
+    <mx:VBox label="{artistText}">
     </mx:VBox>
-    <mx:VBox label="Album">
 
+    <mx:VBox label="{albumText}">
+    </mx:VBox>
+
+    <mx:VBox label="{playlistsText}">
     </mx:VBox>
   </mx:Accordion>
 

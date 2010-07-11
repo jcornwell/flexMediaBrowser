@@ -88,7 +88,9 @@ package com.jcornwell.mediabrowser.view
 
     private function creationCompleteHandler(evt:Event):void
     {
-      mainScreen.welcomeText = localeProxy.getLocalizedText(LocaleKeyEnum.WELCOME);
+      mainScreen.albumText = localeProxy.getLocalizedText(LocaleKeyEnum.ALBUM);
+      mainScreen.artistText = localeProxy.getLocalizedText(LocaleKeyEnum.ARTIST);
+      mainScreen.playlistsText = localeProxy.getLocalizedText(LocaleKeyEnum.PLAYLISTS);
     }
   }
 }
